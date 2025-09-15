@@ -43,9 +43,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.richTxtDescription = new System.Windows.Forms.RichTextBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.gridViewProductList = new System.Windows.Forms.DataGridView();
             this.dtPickerMfgDate = new System.Windows.Forms.DateTimePicker();
             this.dtPickerExpDate = new System.Windows.Forms.DateTimePicker();
+            this.gridViewProductList = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProductList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,6 +146,7 @@
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(260, 21);
             this.cbCategory.TabIndex = 8;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
             // txtQuantity
             // 
@@ -192,14 +193,6 @@
             this.btnAddProduct.UseVisualStyleBackColor = false;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
-            // gridViewProductList
-            // 
-            this.gridViewProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewProductList.Location = new System.Drawing.Point(45, 330);
-            this.gridViewProductList.Name = "gridViewProductList";
-            this.gridViewProductList.Size = new System.Drawing.Size(800, 233);
-            this.gridViewProductList.TabIndex = 16;
-            // 
             // dtPickerMfgDate
             // 
             this.dtPickerMfgDate.Location = new System.Drawing.Point(148, 164);
@@ -214,6 +207,14 @@
             this.dtPickerExpDate.Size = new System.Drawing.Size(260, 20);
             this.dtPickerExpDate.TabIndex = 18;
             // 
+            // gridViewProductList
+            // 
+            this.gridViewProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridViewProductList.Location = new System.Drawing.Point(45, 331);
+            this.gridViewProductList.Name = "gridViewProductList";
+            this.gridViewProductList.Size = new System.Drawing.Size(800, 212);
+            this.gridViewProductList.TabIndex = 19;
+            // 
             // frmAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,9 +222,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(893, 593);
+            this.Controls.Add(this.gridViewProductList);
             this.Controls.Add(this.dtPickerExpDate);
             this.Controls.Add(this.dtPickerMfgDate);
-            this.Controls.Add(this.gridViewProductList);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.richTxtDescription);
             this.Controls.Add(this.label8);
@@ -264,9 +265,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox richTxtDescription;
         private System.Windows.Forms.Button btnAddProduct;
-        private System.Windows.Forms.DataGridView gridViewProductList;
         private System.Windows.Forms.DateTimePicker dtPickerMfgDate;
         private System.Windows.Forms.DateTimePicker dtPickerExpDate;
+        private System.Windows.Forms.DataGridView gridViewProductList;
     }
 }
 
