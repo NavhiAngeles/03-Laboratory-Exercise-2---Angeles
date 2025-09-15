@@ -140,22 +140,22 @@ namespace Inventory
         {
             if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
                 //Exception here
-                throw new Exception("Invalid Product Name");
-            return name;
+                throw new StringFormatException("Invalid Product Name");
+                return name;
         }
         public int Quantity(string qty)
         {
             if (!Regex.IsMatch(qty, @"^[0-9]"))
                 //Exception here
-                throw new Exception("Invalid Quantity");
-            return Convert.ToInt32(qty);
+                throw new NumberformatException("Invalid Quantity");
+                return Convert.ToInt32(qty);
         }
         public double SellingPrice(string price)
         {
             if (!Regex.IsMatch(price.ToString(), @"^(\d*\.)?\d+$"))
                 //Exception here
-                throw new Exception("Invalid Price");
-            return Convert.ToDouble(price);
+                throw new CurrencyFormatException("Invalid Price");
+                return Convert.ToDouble(price);
         }
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
