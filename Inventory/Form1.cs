@@ -14,6 +14,24 @@ namespace Inventory
 
     public partial class frmAddProduct : Form
     {
+        public class NumberformatException : Exception
+        {
+            public NumberformatException(string message) : base(message)
+            {
+            }
+        }
+        public class StringFormatException : Exception
+        {
+            public StringFormatException(string message) : base(message)
+            {
+            }
+        }
+        public class CurrencyFormatException : Exception
+        {
+            public CurrencyFormatException(string message) : base(message)
+            {
+            }
+        }
         public frmAddProduct()
         {
             InitializeComponent();
@@ -141,18 +159,31 @@ namespace Inventory
         }
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            _ProductName = Product_Name(txtProductName.Text);
-            _Category = cbCategory.Text;
-            _MfgDate = dtPickerMfgDate.Value.ToString("yyyy-MM-dd");
-            _ExpDate = dtPickerExpDate.Value.ToString("yyyy-MM-dd");
-            _Description = richTxtDescription.Text;
-            _Quantity = Quantity(txtQuantity.Text);
-            _SellPrice = SellingPrice(txtSellPrice.Text);
-            showProductList.Add(new ProductClass(_ProductName, _Category, _MfgDate,
-            _ExpDate, _SellPrice, _Quantity, _Description));
-            gridViewProductList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gridViewProductList.DataSource = showProductList;
+            try
+            {
+                _ProductName = Product_Name(txtProductName.Text);
+                _Category = cbCategory.Text;
+                _MfgDate = dtPickerMfgDate.Value.ToString("yyyy-MM-dd");
+                _ExpDate = dtPickerExpDate.Value.ToString("yyyy-MM-dd");
+                _Description = richTxtDescription.Text;
+                _Quantity = Quantity(txtQuantity.Text);
+                _SellPrice = SellingPrice(txtSellPrice.Text);
+                showProductList.Add(new ProductClass(_ProductName, _Category, _MfgDate,
+                _ExpDate, _SellPrice, _Quantity, _Description));
+                gridViewProductList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                gridViewProductList.DataSource = showProductList;
+            } catch (StringFormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            } catch (NumberformatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            } catch (CurrencyFormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
