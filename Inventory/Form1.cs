@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Inventory
 {
-    public partial class Form1 : Form
+    public partial class frmAddProduct : Form
     {
         public class ProductClass {
             private int _Quantity;
@@ -105,7 +105,7 @@ namespace Inventory
                 }
             }
         }
-        public Form1()
+        public frmAddProduct()
         {
             InitializeComponent();
         }
@@ -114,6 +114,18 @@ namespace Inventory
         {
 
         }
-        
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string[] ListOfProductCategory = {
+            "Beverages", "Bread/Bakery", "Canned/Jarred Goods", "Dairy",
+            "Frozen Goods", "Meat", "Personal Care", "Other"
+        };
+
+            foreach (string item in ListOfProductCategory)
+            {
+                cbCategory.Items.Add(item);
+            }
+        }
     }
 }
